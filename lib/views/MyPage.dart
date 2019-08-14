@@ -1,19 +1,17 @@
 import 'package:flutter/material.dart';
 
-class MyPage extends StatefulWidget{
+class MyPage extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
     return new MyPageState();
   }
 }
 
-class MyPageState extends State<MyPage>{
+class MyPageState extends State<MyPage> {
   @override
   Widget build(BuildContext context) {
-    return new Scaffold(
-      body: new Center(
-        child: Icon(Icons.mood, size: 130.0, color: Colors.blue),
-      ),
+    return new Center(
+      child: Icon(Icons.mood, size: 130.0, color: Colors.blue),
     );
   }
 }
