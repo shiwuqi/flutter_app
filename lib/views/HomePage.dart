@@ -54,22 +54,22 @@ class HomePageState extends State<HomePage> {
     ];
   }
 
-  Widget buildGrid() {
+  List<Widget> buildGrid() {
     List<Widget> gridViewList = [];
     for (var item in gridList) {
       gridViewList.add(new GridFlatButton(image: item['image'], title: item['title']));
     }
-    return new GridView.count(
-      crossAxisCount: 4,
-      childAspectRatio: 1,
-      children: gridViewList
-    );
+    return gridViewList;
   }
 
   @override
   Widget build(BuildContext context) {
     return Scrollbar(
-      child: buildGrid(),
+      child: GridView.count(
+        crossAxisCount: 4,
+        childAspectRatio: 1,
+        children: buildGrid()
+      ),
     );
   }
 }
