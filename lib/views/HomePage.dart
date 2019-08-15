@@ -54,23 +54,18 @@ class HomePageState extends State<HomePage> {
     ];
   }
 
-  List<Widget> buildGrid() {
-    List<Widget> gridViewList = [];
-    for (var item in gridList) {
-      gridViewList
-          .add(new GridFlatButton(image: item['image'], title: item['title']));
-    }
-    return gridViewList;
-  }
-
   @override
   Widget build(BuildContext context) {
-    return CustomScrollView(
+    return Material(
+        child: CustomScrollView(
       slivers: <Widget>[
         SliverGrid.count(
           crossAxisCount: 4,
           childAspectRatio: 1,
-          children: buildGrid(),
+          children: gridList.map<Widget>((item) {
+            return new GridFlatButton(
+                image: item['image'], title: item['title']);
+          }).toList(),
         ),
         new SliverFixedExtentList(
           itemExtent: 100.0,
@@ -82,10 +77,9 @@ class HomePageState extends State<HomePage> {
               color: Colors.lightBlue[100 * (index % 9)],
               child: new Text('list item $index'),
             );
-          }, childCount: 50
-                  ),
+          }, childCount: 50),
         ),
       ],
-    );
+    ));
   }
 }
