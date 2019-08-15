@@ -65,23 +65,26 @@ class HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-    return ListView(
-      shrinkWrap: true,
-      children: <Widget>[
-        GridView.count(
-            crossAxisCount: 4,
-            childAspectRatio: 1,
-            shrinkWrap: true,
-            physics: NeverScrollableScrollPhysics(),
-            children: buildGrid()),
-        ListView.builder(
-            itemCount: 100,
-            itemExtent: 50.0,
-            shrinkWrap: true,
-            physics: NeverScrollableScrollPhysics(),
-            itemBuilder: (BuildContext context, int index) {
-              return ListTile(title: Text("$index"));
-            })
+    return CustomScrollView(
+      slivers: <Widget>[
+        SliverGrid.count(
+          crossAxisCount: 4,
+          childAspectRatio: 1,
+          children: buildGrid(),
+        ),
+        new SliverFixedExtentList(
+          itemExtent: 100.0,
+          delegate:
+              new SliverChildBuilderDelegate((BuildContext context, int index) {
+            //创建列表项
+            return new Container(
+              alignment: Alignment.center,
+              color: Colors.lightBlue[100 * (index % 9)],
+              child: new Text('list item $index'),
+            );
+          }, childCount: 50
+                  ),
+        ),
       ],
     );
   }
