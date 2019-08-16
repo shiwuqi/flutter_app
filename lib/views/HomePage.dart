@@ -67,15 +67,60 @@ class HomePageState extends State<HomePage> {
                 image: item['image'], title: item['title']);
           }).toList(),
         ),
-        new SliverFixedExtentList(
-          itemExtent: 100.0,
+        new SliverList(
           delegate:
               new SliverChildBuilderDelegate((BuildContext context, int index) {
             //创建列表项
-            return new Container(
-              alignment: Alignment.center,
-              color: Colors.lightBlue[100 * (index % 9)],
-              child: new Text('list item $index'),
+            return Flex(
+              direction: Axis.horizontal,
+              children: <Widget>[
+                Image(
+                    image:
+                        AssetImage("assets/images/home/common-scroll_food.jpg"),
+                    width: 120.0,
+                    height: 120.0),
+                Expanded(
+                  child: Container(
+                    padding: EdgeInsets.only(left: 1.0),
+                    child: Column(
+                      children: <Widget>[
+                        Padding(
+                          padding: EdgeInsets.only(bottom: 4.0),
+                          child: Row(
+                            children: <Widget>[
+                              Text(
+                                "五颗星海鲜烤肉自助餐厅",
+                                style: TextStyle(fontSize: 22.0),
+                              ),
+                            ],
+                          ),
+                        ),
+                        Padding(
+                          padding: EdgeInsets.only(bottom: 16.0),
+                          child: Row(
+                            children: <Widget>[
+                              Text(
+                                "[八佰伴]海鲜自助晚餐",
+                                style: TextStyle(
+                                    fontSize: 18.0, color: Color(0xFF666666)),
+                              )
+                            ],
+                          ),
+                        ),
+                        Row(
+                          children: <Widget>[
+                            Text("10元",
+                                style: TextStyle(
+                                    fontSize: 22.0, color: Color(0xFFFF6600))),
+                            Text("门市价：12元", style: TextStyle(fontSize: 18.0)),
+                            Text("已售33705", style: TextStyle(fontSize: 18.0))
+                          ],
+                        )
+                      ],
+                    ),
+                  ),
+                )
+              ],
             );
           }, childCount: 50),
         ),
