@@ -81,7 +81,7 @@ class HomePageState extends State<HomePage> {
                     height: 120.0),
                 Expanded(
                   child: Container(
-                    padding: EdgeInsets.only(left: 1.0),
+                    padding: EdgeInsets.fromLTRB(1.0, 0, 10.0, 0),
                     child: Column(
                       children: <Widget>[
                         Padding(
@@ -107,15 +107,23 @@ class HomePageState extends State<HomePage> {
                             ],
                           ),
                         ),
-                        Row(
+                        Flex(
+                          direction: Axis.horizontal,
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: <Widget>[
-                            Text("10元",
-                                style: TextStyle(
-                                    fontSize: 22.0, color: Color(0xFFFF6600))),
-                            Text("门市价：12元", style: TextStyle(fontSize: 18.0)),
+                            Row(
+                              children: <Widget>[
+                                Text("10元",
+                                    style: TextStyle(
+                                        fontSize: 22.0,
+                                        color: Color(0xFFFF6600))),
+                                Text("门市价：12元",
+                                    style: TextStyle(fontSize: 18.0)),
+                              ],
+                            ),
                             Text("已售33705", style: TextStyle(fontSize: 18.0))
                           ],
-                        )
+                        ),
                       ],
                     ),
                   ),
