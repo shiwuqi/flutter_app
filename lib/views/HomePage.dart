@@ -23,7 +23,9 @@ class _GridFlatButtonState extends State<GridFlatButton> {
           )
         ],
       ),
-      onPressed: () {},
+      onPressed: () {
+        Navigator.pushNamed(context, "detail_page");
+      },
     );
   }
 }
@@ -71,66 +73,72 @@ class HomePageState extends State<HomePage> {
           delegate:
               new SliverChildBuilderDelegate((BuildContext context, int index) {
             //创建列表项
-            return Flex(
-              direction: Axis.horizontal,
-              children: <Widget>[
-                Image(
-                    image:
-                        AssetImage("assets/images/home/common-scroll_food.jpg"),
-                    width: 120.0,
-                    height: 120.0),
-                Expanded(
-                  child: Container(
-                    padding: EdgeInsets.fromLTRB(1.0, 0, 10.0, 0),
-                    child: Column(
-                      children: <Widget>[
-                        Padding(
-                          padding: EdgeInsets.only(bottom: 4.0),
-                          child: Row(
-                            children: <Widget>[
-                              Text(
-                                "五颗星海鲜烤肉自助餐厅",
-                                style: TextStyle(fontSize: 22.0),
-                              ),
-                            ],
-                          ),
-                        ),
-                        Padding(
-                          padding: EdgeInsets.only(bottom: 16.0),
-                          child: Row(
-                            children: <Widget>[
-                              Text(
-                                "[八佰伴]海鲜自助晚餐",
-                                style: TextStyle(
-                                    fontSize: 18.0, color: Color(0xFF666666)),
-                              )
-                            ],
-                          ),
-                        ),
-                        Flex(
-                          direction: Axis.horizontal,
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: <Widget>[
-                            Row(
+            return FlatButton(
+              padding: EdgeInsets.fromLTRB(10.0, 4.0, 10.0, 4.0),
+              child: Flex(
+                direction: Axis.horizontal,
+                children: <Widget>[
+                  Image(
+                      image: AssetImage(
+                          "assets/images/home/common-scroll_food.jpg"),
+                      width: 100.0,
+                      height: 100.0),
+                  Expanded(
+                    child: Container(
+                      padding: EdgeInsets.fromLTRB(10.0, 0, 0, 0),
+                      child: Column(
+                        children: <Widget>[
+                          Padding(
+                            padding: EdgeInsets.only(bottom: 4.0),
+                            child: Row(
                               children: <Widget>[
-                                Text("10元",
-                                    style: TextStyle(
-                                        fontSize: 22.0,
-                                        color: Color(0xFFFF6600))),
-                                Text("门市价：12元",
-                                    style: TextStyle(fontSize: 18.0)),
+                                Text(
+                                  "五颗星海鲜烤肉自助餐厅",
+                                  style: TextStyle(fontSize: 22.0),
+                                ),
                               ],
                             ),
-                            Text("已售33705", style: TextStyle(fontSize: 18.0))
-                          ],
-                        ),
-                      ],
+                          ),
+                          Padding(
+                            padding: EdgeInsets.only(bottom: 16.0),
+                            child: Row(
+                              children: <Widget>[
+                                Text(
+                                  "[八佰伴]海鲜自助晚餐",
+                                  style: TextStyle(
+                                      fontSize: 18.0, color: Color(0xFF666666)),
+                                )
+                              ],
+                            ),
+                          ),
+                          Flex(
+                            direction: Axis.horizontal,
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: <Widget>[
+                              Row(
+                                children: <Widget>[
+                                  Text("10元",
+                                      style: TextStyle(
+                                          fontSize: 22.0,
+                                          color: Color(0xFFFF6600))),
+                                  Text("门市价：12元",
+                                      style: TextStyle(fontSize: 18.0)),
+                                ],
+                              ),
+                              Text("已售33705", style: TextStyle(fontSize: 18.0))
+                            ],
+                          ),
+                        ],
+                      ),
                     ),
-                  ),
-                )
-              ],
+                  )
+                ],
+              ),
+              onPressed: () {
+                Navigator.pushNamed(context, "detail_page");
+              },
             );
-          }, childCount: 50),
+          }),
         ),
       ],
     ));
